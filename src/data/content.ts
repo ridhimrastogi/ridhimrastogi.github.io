@@ -1,10 +1,9 @@
 export const personalInfo = {
   name: "Ridhim Rastogi",
-  title: "Software Dev Engineer II",
+  title: "Software Engineer",
   company: "AWS",
   location: "Seattle, WA",
   email: "ridhimrastogi@gmail.com",
-  phone: "+1 984-777-1049",
   linkedin: "https://www.linkedin.com/in/ridhim-rastogi/",
   github: "https://github.com/ridhimrastogi",
   tagline: "Building ML infrastructure at scale",
