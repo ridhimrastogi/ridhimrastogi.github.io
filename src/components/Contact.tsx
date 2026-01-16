@@ -1,9 +1,23 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { personalInfo } from '@/data/content'
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false)
+
+  const handleEmailClick = async (e: React.MouseEvent) => {
+    e.preventDefault()
+    try {
+      await navigator.clipboard.writeText(personalInfo.email)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      window.location.href = `mailto:${personalInfo.email}`
+    }
+  }
+
   return (
     <section id="contact" className="py-24 px-6 bg-surface/30">
       <div className="max-w-3xl mx-auto text-center">
@@ -21,12 +35,26 @@ const Contact = () => {
             or just having a chat about technology and ML.
           </p>
 
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="inline-block px-8 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors duration-300 mb-8"
-          >
-            Say Hello
-          </a>
+          <div className="relative inline-block mb-8">
+            <button
+              onClick={handleEmailClick}
+              className="px-8 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors duration-300"
+            >
+              {copied ? 'Email Copied!' : 'Say Hello'}
+            </button>
+            <AnimatePresence>
+              {copied && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  className="absolute left-1/2 -translate-x-1/2 -bottom-10 bg-surface border border-accent text-accent text-sm px-4 py-2 rounded-lg whitespace-nowrap"
+                >
+                  {personalInfo.email}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           <div className="flex justify-center gap-8 mt-8">
             <a
