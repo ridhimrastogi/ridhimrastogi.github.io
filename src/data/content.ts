@@ -68,6 +68,23 @@ export const education = [
   },
 ];
 
+export const blogPosts = [
+  {
+    title: "Speed up your time series forecasting by up to 50 percent with Amazon SageMaker Canvas",
+    description: "Learn how to accelerate time series forecasting using SageMaker Canvas UI and AutoML APIs for faster model training and predictions.",
+    url: "https://aws.amazon.com/blogs/machine-learning/speed-up-your-time-series-forecasting-by-up-to-50-percent-with-amazon-sagemaker-canvas-ui-and-automl-apis/",
+    publisher: "AWS Machine Learning Blog",
+    date: "2023",
+  },
+  {
+    title: "Choose specific timeseries to forecast with Amazon Forecast",
+    description: "A guide on selectively forecasting specific time series data using Amazon Forecast for more targeted predictions.",
+    url: "https://aws.amazon.com/blogs/machine-learning/choose-specific-timeseries-to-forecast-with-amazon-forecast/",
+    publisher: "AWS Machine Learning Blog",
+    date: "2022",
+  },
+];
+
 export const projects = [
   {
     title: "Library Management System",
